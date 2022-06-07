@@ -1,0 +1,21 @@
+{
+  "name": "e2e",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/4M01/e2e.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/4M01/e2e/issues"
+  },
+  "homepage": "https://github.com/4M01/e2e#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.22.2"
+  }
+}
