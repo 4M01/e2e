@@ -13,7 +13,7 @@ jobs:
       # - name: pull docker image
       #   run: docker pull mcr.microsoft.com/playwright:v1.22.0-focal 
       - name: run tests
-        run: docker run -v $PWD:/tests -w /tests --rm amolchavan/e2e_public /bin/bash/
+        run: docker run -v $PWD:/tests -w /tests --rm amolchavan/e2e_public e2e
 
   # test:
   #   timeout-minutes: 60
