@@ -9,19 +9,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Install
-        # NOTE: this pins the action to a specific commit sha for security
-        # reasons but you can also use a version tag if desired. For example:
-        # ianwalter/playwright-container@v3.0.0
-        uses: mcr.microsoft.com/playwright:v1.22.0-focal
-        with:
-          args: npm ci
-      - name: Test
-        uses: mcr.microsoft.com/playwright:v1.22.0-focal
-        with:
-          args: npx playwright test
+      - uses: actions/checkout@v2
+      - name: pull docker image
+        run: docker pull mcr.microsoft.com/playwright:v1.22.0-focal 
+      - name: run tests
+        run: docker run -it --rm --ipc=host mcr.microsoft.com/playwright:v1.22.0-focal /bin/bash
+     
   # test:
   #   timeout-minutes: 60
   #   runs-on: ubuntu-latest
