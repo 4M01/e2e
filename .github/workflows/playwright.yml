@@ -13,7 +13,9 @@ jobs:
       - name: pull docker image
         run: docker pull mcr.microsoft.com/playwright:v1.22.0-focal 
       - name: run tests
-        run: docker-compose exec -t -v $PWD:/tests -w /tests --rm -it mcr.microsoft.com/playwright:v1.22.0-focal /bin/bash
+        run: docker run -v $PWD:/tests -w /tests --rm mcr.microsoft.com/playwright:v1.16.2-focal /bin/bash
+      - name: install npm
+        run: npm install
      
   # test:
   #   timeout-minutes: 60
