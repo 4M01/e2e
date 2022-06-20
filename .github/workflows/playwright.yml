@@ -13,7 +13,7 @@ jobs:
       # - name: pull docker image
       #   run: docker pull mcr.microsoft.com/playwright:v1.22.0-focal 
       - name: run tests
-        run: docker run -v $PWD:/tests -w /tests --rm mcr.microsoft.com/playwright:v1.16.2-focal /bin/bash
+        run: docker run -v $PWD:/tests -w /tests --rm docker pull amolchavan/e2e_public /bin/bash
       - name: install npm
         run: npm install
       - name: npx playwright install
