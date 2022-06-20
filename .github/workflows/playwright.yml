@@ -13,7 +13,7 @@ jobs:
       - name: pull docker image
         run: docker pull mcr.microsoft.com/playwright:v1.22.0-focal 
       - name: run tests
-        run: docker run -T -v $PWD:/tests -w /tests --rm -it mcr.microsoft.com/playwright:v1.22.0-focal /bin/bash
+        run: docker run -t -v $PWD:/tests -w /tests --rm -it mcr.microsoft.com/playwright:v1.22.0-focal /bin/bash
      
   # test:
   #   timeout-minutes: 60
