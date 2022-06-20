@@ -13,7 +13,7 @@ jobs:
       - name: pull docker image
         run: docker pull mcr.microsoft.com/playwright:v1.22.0-focal 
       - name: run tests
-        run: docker run -t -it --rm --ipc=host mcr.microsoft.com/playwright:v1.22.0-focal /bin/bash
+        run: docker-compose exec -T -it --rm --ipc=host mcr.microsoft.com/playwright:v1.22.0-focal /bin/bash
      
   # test:
   #   timeout-minutes: 60
