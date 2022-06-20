@@ -10,13 +10,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: pull docker image
-        run: docker pull mcr.microsoft.com/playwright:v1.22.0-focal 
+      # - name: pull docker image
+      #   run: docker pull mcr.microsoft.com/playwright:v1.22.0-focal 
       - name: run tests
         run: docker run -v $PWD:/tests -w /tests --rm mcr.microsoft.com/playwright:v1.16.2-focal /bin/bash
       - name: install npm
         run: npm install
-     
+      - name: npx playwright install
+        run: npx playwright install
+      - name: npx playwright test
+        run: npx playwright test
   # test:
   #   timeout-minutes: 60
   #   runs-on: ubuntu-latest
