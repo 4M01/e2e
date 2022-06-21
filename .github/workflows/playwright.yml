@@ -14,6 +14,18 @@ jobs:
       #   run: docker pull mcr.microsoft.com/playwright:v1.22.0-focal 
       - name: run tests
         run: docker run amolchavan/e2e_public 
+      - uses: shrink/actions-docker-extract@v1
+        id: extract
+        with:
+          image: amolchavan/e2e_public
+          path: /playwright-report/.
+      - uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: playwright-report
+          path: ${{ steps.extract.outputs.destination }}
+          retention-days: 10
+      
 
   # test:
   #   timeout-minutes: 60
