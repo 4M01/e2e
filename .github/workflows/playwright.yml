@@ -11,7 +11,12 @@ jobs:
     steps:
     - name: pull docker image and run tests
       run: docker run -v $PWD/playwright-report:/e2e/playwright-report  amolchavan/e2e_public 
-   
+    - uses: actions/upload-artifact@v2
+      if: always()
+      with:
+        name: playwright-report
+        path: playwright-report/
+        retention-days: 5
 
   # test:
   #   timeout-minutes: 60
