@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: pull docker image and run tests
-      run:  docker run -v $PWD/playwright-report:/e2e/playwright-report  amolchavan/e2e_public
+      run: docker run -v $PWD/playwright-report:/e2e/playwright-report  -v $PWD/allure-results:/e2e/allure-results amolchavan/e2e_public
     - uses: actions/upload-artifact@v2
       if: always()
       with:
